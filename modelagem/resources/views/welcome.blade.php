@@ -65,6 +65,8 @@
         </style>
     </head>
     <body>
+            <pagina>  </pagina>
+            <example-component> adadad </example-component>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

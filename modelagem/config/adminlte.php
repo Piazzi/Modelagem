@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'SnowBird Financial',
 
-    'title_prefix' => '',
+    'title_prefix' => 'SBF',
 
     'title_postfix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Financeiro</b>LTE',
+    'logo' => '<b>Snowbird Financial</b>SBF',
 
-    'logo_mini' => '<b>FN</b>LT',
+    'logo_mini' => '<b>SBF</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue-light',
+    'skin' => 'blue',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => 'fixed',
+    'layout' => 'top-nav',
 
     /*
     |--------------------------------------------------------------------------
@@ -115,8 +115,8 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'home',
+            'text'        => 'Financeiro',
+            'url'         => 'gastos',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
