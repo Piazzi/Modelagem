@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/financeiro', function(){
     return view('financeiro');
 });
+
+Route::resource('/cargos', 'CargoController');
+

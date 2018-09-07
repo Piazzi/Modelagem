@@ -121,6 +121,22 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Funcionários',
+            'url'         => '/funcionarios',
+            'icon'        => 'users',
+            'label'       => 4,
+            'label_color' => 'success',
+
+        ],
+        [
+            'text'        => 'Estoque',
+            'url'         => '/estoque',
+            'icon'        => 'archive',
+            'label'       => 4,
+            'label_color' => 'success',
+
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
@@ -133,56 +149,25 @@ return [
             'icon' => 'lock',
         ],
         [
-            'text'    => 'Multilevel',
+            'text'    => 'Sistema',
             'icon'    => 'share',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Cargos',
+                    'url'  => '/cargos',
                 ],
                 [
-                    'text'    => 'Level One',
+                    'text'    => 'Categoria de Entrada',
                     'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+
                 ],
                 [
-                    'text' => 'Level One',
+                    'text' => 'Categoria de Gasto',
                     'url'  => '#',
                 ],
             ],
         ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
-        ],
+
     ],
 
     /*
