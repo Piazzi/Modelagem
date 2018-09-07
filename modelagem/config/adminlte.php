@@ -116,7 +116,7 @@ return [
         ],
         [
             'text'        => 'Financeiro',
-            'url'         => 'gastos',
+            'url'         => '/financeiro',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',

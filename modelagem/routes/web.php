@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vendor.adminlte.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/gastos', function(){
-    return view('gastos');
+Route::get('/financeiro', function(){
+    return view('financeiro');
 });
