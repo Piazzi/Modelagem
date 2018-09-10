@@ -45,6 +45,11 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'descricao' => 'required',
+        ]);
+
         $cargo = Cargo::create($request->all());
         return redirect()->back()->with('Sucesso', 'O cargo foi adicionado com sucesso')->withInput();
     }
@@ -80,6 +85,11 @@ class CargoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'descricao' => 'required',
+        ]);
+
         $cargo = Cargo::findOrFail($id);
         $cargo->update($request->all());
         return redirect()->back()->with('Sucesso', 'O cargo foi alterado com sucesso')->withInput();

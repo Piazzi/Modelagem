@@ -23,6 +23,17 @@
             <strong>{{ session('Sucesso') }}</strong>
         </div>
     @endif
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-close"></i> ERROR!</h4>
+            <strong>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </strong>
+        </div>
+    @endif
 @stop
 
 @section('content')
@@ -81,11 +92,11 @@
                             {{ csrf_field() }}
                     <div class="form-group">
                         <label for="">Nome</label>
-                        <input type="text" class="form-control" name="nome" id="" aria-describedby="helpId" placeholder="Insira o nome do cargo">
+                    <input value="{{old('nome')}}" type="text" class="form-control" name="nome" id="" aria-describedby="helpId" placeholder="Insira o nome do cargo">
                     </div>
                     <div class="form-group">
                         <label for="">Descrição</label>
-                        <input type="text" class="form-control" name="descricao" id="" aria-describedby="helpId" placeholder="Insira a descrição">
+                    <input value="{{old('descricao')}}" type="text" class="form-control" name="descricao" id="" aria-describedby="helpId" placeholder="Insira a descrição">
                     </div>
                 </div>
                 <div class="modal-footer">
