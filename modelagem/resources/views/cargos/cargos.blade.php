@@ -47,9 +47,9 @@
                 <td> {{$cargo->nome}} </td>
                 <td> {{$cargo->descricao}} </td>
                 <td>
-                    <a href="/cargos/cargos_visualizar/{{$cargo->id}}"> <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                    <a href="/cargos/cargos_alterar/{{$cargo->id}}"> <button type="submit" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                    <a action="/cargos/cargos_visualizar/{{$cargo->id}}"> <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button></a>
+                    <a href="/cargos/cargos_visualizar/{{$cargo->id}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                    <a href="/cargos/cargos_alterar/{{$cargo->id}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                    <a href="/cargos/cargos_deletar/{{$cargo->id}}"> <button type="button" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button></a>
                 </td>
               </tr>
               @endforeach
