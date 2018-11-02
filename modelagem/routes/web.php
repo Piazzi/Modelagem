@@ -23,4 +23,8 @@ Route::get('/financeiro', function(){
 });
 
 Route::resource('/cargos', 'CargoController');
+Route::get('/cargos_adicionar', function() {
+    return view('cargos.cargos_adicionar');
+});
+Route::get('/cargos/cargos_visualizar/{id}', 'CargoController@show');
 

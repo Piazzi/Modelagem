@@ -24,7 +24,7 @@ class CargoController extends Controller
     }*/
 
 
-        return view('cargos', compact('cargos'));
+        return view('cargos.cargos', compact('cargos'));
     }
 
     /**
@@ -51,7 +51,8 @@ class CargoController extends Controller
         ]);
 
         $cargo = Cargo::create($request->all());
-        return redirect()->back()->with('Sucesso', 'O cargo foi adicionado com sucesso')->withInput();
+        return redirect()->route('cargos.index')->with('Sucesso', 'Seu cargo foi adicionado com sucesso')->withInput();
+
     }
 
     /**
