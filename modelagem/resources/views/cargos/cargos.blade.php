@@ -47,11 +47,10 @@
                 <td> {{$cargo->nome}} </td>
                 <td> {{$cargo->descricao}} </td>
                 <td>
-                    <form action="/cargos/cargos_visualizar/{{$cargo->id}}" method="GET"> <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-edit"></i></button> </form>
-                    <form action="/cargos/cargos_visualizar/{{$cargo->id}}" method="GET"> <button type="submit" class="btn btn-warning"><i class="fa fa-fw fa-search-plus"></i></button> </form>
-                    <form action="/cargos/cargos_visualizar/{{$cargo->id}}" method="GET"> <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button> </form>
+                    <a href="/cargos/cargos_visualizar/{{$cargo->id}}"> <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                    <a href="/cargos/cargos_alterar/{{$cargo->id}}"> <button type="submit" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                    <a action="/cargos/cargos_visualizar/{{$cargo->id}}"> <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button></a>
                 </td>
-
               </tr>
               @endforeach
         @endslot

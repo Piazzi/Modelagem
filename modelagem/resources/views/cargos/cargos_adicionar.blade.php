@@ -37,6 +37,9 @@
                 <label>Descrição</label>
                 <input required value="{{old('descricao')}}" name="descricao" type="text" class="form-control" placeholder=" ...">
             </div>
+            @slot('botao')
+                Adicionar
+            @endslot
         @endslot
     @endcomponent
 @stop

@@ -26,5 +26,9 @@ Route::resource('/cargos', 'CargoController');
 Route::get('/cargos_adicionar', function() {
     return view('cargos.cargos_adicionar');
 });
+Route::get('/cargos/cargos_visualizar', function(){
+    return view('cargos.cargos_visualizar');
+});
 Route::get('/cargos/cargos_visualizar/{id}', 'CargoController@show');
+Route::put('/cargos/cargos_alterar/{id}','CargoController@update');
 

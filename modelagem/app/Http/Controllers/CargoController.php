@@ -63,7 +63,8 @@ class CargoController extends Controller
      */
     public function show($id)
     {
-        return Cargo::findOrFail($id);
+        $cargo = Cargo::findOrFail($id);
+        return view('cargos.cargos_visualizar', compact('cargo'));
     }
 
     /**

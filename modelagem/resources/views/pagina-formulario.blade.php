@@ -8,7 +8,7 @@
             {{ csrf_field() }}
 
             {{$formulario}}
-            <button class="btn btn-primary btn-block" type="submit">Adicionar</button>
+        <button class="btn btn-primary btn-block" type="submit">{{$botao}}</button>
         </form>
         </div>
         <!-- /.box-body -->
