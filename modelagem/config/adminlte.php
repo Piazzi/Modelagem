@@ -137,6 +137,12 @@ return [
             'label_color' => 'success',
 
         ],
+        [
+            'text' => 'Atendimento',
+            'url' => 'mesas',
+            'icon' => 'coffee'
+
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
@@ -149,21 +155,26 @@ return [
             'icon' => 'lock',
         ],
         [
-            'text'    => 'Sistema',
-            'icon'    => 'share',
+            'text' => 'Mesas do restaurante',
+            'url'  => 'mesasPadraoListagem',
+            'icon' => 'archive',
+        ],
+        [
+            'text' => 'Sistema',
+            'icon' => 'share',
             'submenu' => [
                 [
                     'text' => 'Cargos',
-                    'url'  => '/cargos',
+                    'url' => '/cargos',
                 ],
                 [
-                    'text'    => 'Categoria de Entrada',
-                    'url'     => '#',
+                    'text' => 'Categoria de Entrada',
+                    'url' => '#',
 
                 ],
                 [
                     'text' => 'Categoria de Gasto',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
             ],
         ],

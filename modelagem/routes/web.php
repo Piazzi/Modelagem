@@ -33,3 +33,16 @@ Route::get('/cargos/cargos_visualizar', function(){
 Route::get('/cargos/cargos_visualizar/{id}', 'CargoController@show');
 Route::put('/cargos/cargos_alterar/{id}','CargoController@update');
 Route::delete('/cargos/cargos_deletar/{id}', 'CargoController@destroy');
+
+
+Route::get('/mesas', 'MesaController@index');
+Route::get('/mesas_adicionar', 'MesaController@create');
+
+
+
+Route::get('/mesasPadraoListagem', 'MesaPadraoController@index');
+Route::get('/mesasPadrao_adicionar', function() {
+    return view('mesasPadrao.adicionar');
+});
+Route::resource('/mesaPadrao', 'MesaPadraoController');
+
