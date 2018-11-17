@@ -34,7 +34,7 @@ class CargoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cargos.cargos_adicionar');
     }
 
     /**
@@ -75,7 +75,8 @@ class CargoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cargo = Cargo::findOrFail($id);
+        return view('cargos.cargos_alterar', compact('cargo','id'));
     }
 
     /**
@@ -94,7 +95,8 @@ class CargoController extends Controller
 
         $cargo = Cargo::findOrFail($id);
         $cargo->update($request->all());
-        return redirect()->back()->with('Sucesso', 'O cargo foi alterado com sucesso')->withInput();
+        $cargo->save();
+        return redirect()->route('cargos.index')->with('Sucesso', 'O cargo foi alterado com sucesso');
     }
 
     /**

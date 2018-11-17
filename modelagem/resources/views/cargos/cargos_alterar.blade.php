@@ -26,16 +26,16 @@
             PUT
         @endslot
         @slot('rota')
-            {{route('cargos.update')}}
+            {{route('cargos.update', $cargo->id)}}
         @endslot
         @slot('formulario')
             <div class="form-group">
                 <label>Name</label>
-                <input required value="{{old('nome')}}" name="nome" type="text" class="form-control" placeholder=" ...">
+            <input required value="{{$cargo->nome}}" name="nome" type="text" class="form-control" placeholder=" ...">
             </div>
             <div class="form-group">
                 <label>Descrição</label>
-                <input required value="{{old('descricao')}}" name="descricao" type="text" class="form-control" placeholder=" ...">
+            <input required value="{{$cargo->descricao}}" name="descricao" type="text" class="form-control" placeholder=" ...">
             </div>
             @slot('botao')
                 Alterar
