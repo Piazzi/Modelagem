@@ -14,7 +14,7 @@ class EstoqueController extends Controller
     public function index()
     {
         $estoque = Estoque::select()->paginate(10);
-        return view('estoque', compact('estoque'));
+        return view('estoque.estoque', compact('estoque'));
     }
 
     /**
@@ -24,7 +24,7 @@ class EstoqueController extends Controller
      */
     public function create()
     {
-        //
+        return view('estoque.estoque_create');
     }
 
     /**
@@ -36,7 +36,7 @@ class EstoqueController extends Controller
     public function store(Request $request)
     {
         $estoque = Estoque::create($request->all());
-        return redirect()->back()->with('Sucesso', 'O produto foi adicionado com sucesso');
+        return redirect()->route('estoque.index')->with('Sucesso', 'O produto foi adicionado com sucesso');
     }
 
     /**
@@ -47,7 +47,8 @@ class EstoqueController extends Controller
      */
     public function show($id)
     {
-        return Estoque::findOrFail($id);
+        $estoque =  Estoque::findOrFail($id);
+        return view('estoque.estoque_show', compact('estoque'));
     }
 
     /**
@@ -58,7 +59,8 @@ class EstoqueController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estoque = Estoque::findOrFail($id);
+        return view('estoque.estoque_edit', compact('estoque','id'));
     }
 
     /**
@@ -72,7 +74,7 @@ class EstoqueController extends Controller
     {
         $estoque = Estoque::findOrFail($id);
         $estoque->update($request->all());
-        return redirect()->back()->with('Sucesso', 'O produto foi alterado com sucesso');
+        return redirect()->route('estoque.index')->with('Sucesso', 'O produto foi alterado com sucesso');
     }
 
     /**
@@ -84,6 +86,6 @@ class EstoqueController extends Controller
     public function destroy($id)
     {
         Estoque::findOrFail($id)->delete();
-        return redirect()->back()->with('Sucesso', 'O produto foi deletado com sucesso');
+        return redirect()->route('estoque.index')->with('Sucesso', 'O produto foi deletado com sucesso');
     }
 }

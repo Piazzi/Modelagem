@@ -131,7 +131,7 @@ return [
         ],
         [
             'text'        => 'Estoque',
-            'url'         => '/estoque',
+            'url'         => '/estoques',
             'icon'        => 'archive',
             'label'       => 4,
             'label_color' => 'success',

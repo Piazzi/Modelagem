@@ -23,7 +23,7 @@ Route::get('/financeiro', function(){
 });
 
 Route::resource('/cargos', 'CargoController');
-
+Route::resource('/estoque', 'EstoqueController');
 
 Route::get('/mesas', 'MesaController@index');
 Route::get('/mesas_adicionar', 'MesaController@create');
