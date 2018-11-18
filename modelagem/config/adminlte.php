@@ -117,7 +117,7 @@ return [
         [
             'text'        => 'Financeiro',
             'url'         => '/financeiro',
-            'icon'        => 'file',
+            'icon'        => 'bar-chart',
             'label'       => 4,
             'label_color' => 'success',
         ],
@@ -146,23 +146,23 @@ return [
         [
             'text' => 'Despesas',
             'url' => 'gastos',
-            'icon' => 'coffee'
+            'icon' => 'dollar'
 
         ],
         [
             'text' => 'Receitas',
             'url' => 'entradas',
-            'icon' => 'coffee'
+            'icon' => 'bank'
 
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'text' => 'Usuários do Sistema',
+            'url'  => '/usuarios',
+            'icon' => 'users',
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Mudar Senha',
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],
@@ -180,14 +180,11 @@ return [
                     'url' => '/cargos',
                 ],
                 [
-                    'text' => 'Categoria de Entrada',
-                    'url' => '#',
+                    'text' => 'Funcionarios',
+                    'url' => '/funcionarios',
 
                 ],
-                [
-                    'text' => 'Categoria de Gasto',
-                    'url' => '#',
-                ],
+
             ],
         ],
 

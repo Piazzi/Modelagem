@@ -21,7 +21,7 @@ class UsuarioController extends Controller
 
         $usuarios = User::select('id', 'name', 'email')->paginate(10);
 
-        return view('usuarios', compact('usuarios'));
+        return view('usuarios.usuarios', compact('usuarios'));
     }
 
     /**
@@ -31,7 +31,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuarios.usuarios_create');
     }
 
     /**
@@ -47,7 +47,7 @@ class UsuarioController extends Controller
         $usuario = User::create($request->all());
 
 
-        return redirect()->back()->with('Sucesso', 'O usuário foi adicionado com sucesso')->withInput();
+        return redirect()->route('usuarios.index')->with('Sucesso', 'O usuário foi adicionado com sucesso')->withInput();
 
     }
 
@@ -59,7 +59,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        return User::findOrFail($id);
+        $usuario =  User::findOrFail($id);
+        return view('usuarios.usuarios_show', compact('usuario'));
     }
 
     /**
@@ -70,7 +71,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        return view('usuarios.usuarios_edit', compact('usuario','id'));
     }
 
     /**
@@ -86,7 +88,7 @@ class UsuarioController extends Controller
         $usuario = User::findOrFail($id);
         $usuario->update($request->all());
 
-        return redirect()->back()->with('Sucesso', 'O usuário foi alterado com sucesso')->withInput();
+        return redirect()->route('usuarios.index')->with('Sucesso', 'O usuário foi alterado com sucesso')->withInput();
 
     }
 
@@ -100,7 +102,7 @@ class UsuarioController extends Controller
     {
         $usuario = User::findOrFail($id);
         $usuario->delete();
-        return redirect()->back()->with('Sucesso', 'O usuário foi deletado com sucesso');
+        return redirect()->route('usuarios.index')->with('Sucesso', 'O usuário foi deletado com sucesso');
 
     }
 
