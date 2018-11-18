@@ -149,6 +149,12 @@ return [
             'icon' => 'coffee'
 
         ],
+        [
+            'text' => 'Receitas',
+            'url' => 'entradas',
+            'icon' => 'coffee'
+
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
