@@ -131,7 +131,7 @@ return [
         ],
         [
             'text'        => 'Estoque',
-            'url'         => '/estoques',
+            'url'         => '/estoque',
             'icon'        => 'archive',
             'label'       => 4,
             'label_color' => 'success',
@@ -140,6 +140,12 @@ return [
         [
             'text' => 'Atendimento',
             'url' => 'mesas',
+            'icon' => 'coffee'
+
+        ],
+        [
+            'text' => 'Despesas',
+            'url' => 'gastos',
             'icon' => 'coffee'
 
         ],

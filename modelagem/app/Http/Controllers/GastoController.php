@@ -14,8 +14,7 @@ class GastoController extends Controller
     public function index()
     {
         $gastos = Gasto::select()->paginate(10);
-        $categoriasGasto = CategoriaGasto::all();
-        return view ('gastos', compact ('gastos', 'categoriasGasto'));
+        return view ('gastos.gastos', compact ('gastos'));
     }
 
     /**
@@ -25,7 +24,7 @@ class GastoController extends Controller
      */
     public function create()
     {
-        //
+        return view('gastos.gastos_create');
     }
 
     /**
@@ -37,7 +36,7 @@ class GastoController extends Controller
     public function store(Request $request)
     {
         $gasto = Gasto::create($request->all());
-        return redirect()->back()->with('Sucesso', 'O gasto foi adicionado com sucesso');
+        return redirect()->route('gastos.index')->with('Sucesso', 'O gasto foi adicionado com sucesso');
     }
 
     /**
@@ -48,7 +47,8 @@ class GastoController extends Controller
      */
     public function show($id)
     {
-        return Gasto::findOrFail($id);
+        $gasto =  Gasto::findOrFail($id);
+        return view('gastos.gastos_show', compact('gasto'));
     }
 
     /**
@@ -59,7 +59,8 @@ class GastoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gasto = Gasto::FindOrFail($id);
+        return view('gastos.gastos_edit', compact('gasto','id'));
     }
 
     /**
@@ -73,7 +74,7 @@ class GastoController extends Controller
     {
         $Gasto = Gasto::findOrFail($id);
         $Gasto->update($request->all());
-        return redirect()->back()->with('Sucesso', 'O gasto foi alterado com sucesso');
+        return redirect()->route('gastos.index')->with('Sucesso', 'O gasto foi alterado com sucesso');
     }
 
     /**
@@ -85,6 +86,6 @@ class GastoController extends Controller
     public function destroy($id)
     {
         Gasto::findOrFail($id)->delete();
-        return redirect()->back()->with('Sucesso', 'O gasto foi deletado com sucesso');
+        return redirect()->route('gastos.index')->with('Sucesso', 'O gasto foi deletado com sucesso');
     }
 }
