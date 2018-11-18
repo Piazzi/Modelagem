@@ -11,4 +11,8 @@ class Funcionario extends Model
      'carteira_trabalho', 'salario_base', 'cargo_id'];
 
 
+     public function cargo()
+    {
+        return $this->belongsTo('App\Cargo');
+    }
 }

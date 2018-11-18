@@ -7,116 +7,7 @@
 @stop
 
 @section('content')
-<ul class="timeline">
-        <!-- timeline time label -->
-        <li class="time-label">
-              <span class="bg-red">
-                10 Feb. 2014
-              </span>
-        </li>
-        <!-- /.timeline-label -->
-        <!-- timeline item -->
-        <li>
-          <i class="fa fa-envelope bg-blue"></i>
 
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-            <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-            <div class="timeline-body">
-              Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-              weebly ning heekya handango imeem plugg dopplr jibjab, movity
-              jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-              quora plaxo ideeli hulu weebly balihoo...
-            </div>
-            <div class="timeline-footer">
-              <a class="btn btn-primary btn-xs">Read more</a>
-              <a class="btn btn-danger btn-xs">Delete</a>
-            </div>
-          </div>
-        </li>
-        <!-- END timeline item -->
-        <!-- timeline item -->
-        <li>
-          <i class="fa fa-user bg-aqua"></i>
-
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-
-            <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
-          </div>
-        </li>
-        <!-- END timeline item -->
-        <!-- timeline item -->
-        <li>
-          <i class="fa fa-comments bg-yellow"></i>
-
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
-
-            <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-            <div class="timeline-body">
-              Take me to your leader!
-              Switzerland is small and neutral!
-              We are more like Germany, ambitious and misunderstood!
-            </div>
-            <div class="timeline-footer">
-              <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-            </div>
-          </div>
-        </li>
-        <!-- END timeline item -->
-        <!-- timeline time label -->
-        <li class="time-label">
-              <span class="bg-green">
-                3 Jan. 2014
-              </span>
-        </li>
-        <!-- /.timeline-label -->
-        <!-- timeline item -->
-        <li>
-          <i class="fa fa-camera bg-purple"></i>
-
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-
-            <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-            <div class="timeline-body">
-              <img src="http://placehold.it/150x100" alt="..." class="margin">
-              <img src="http://placehold.it/150x100" alt="..." class="margin">
-              <img src="http://placehold.it/150x100" alt="..." class="margin">
-              <img src="http://placehold.it/150x100" alt="..." class="margin">
-            </div>
-          </div>
-        </li>
-        <!-- END timeline item -->
-        <!-- timeline item -->
-        <li>
-          <i class="fa fa-video-camera bg-maroon"></i>
-
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
-
-            <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
-
-            <div class="timeline-body">
-              <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" frameborder="0" allowfullscreen=""></iframe>
-              </div>
-            </div>
-            <div class="timeline-footer">
-              <a href="#" class="btn btn-xs bg-maroon">See comments</a>
-            </div>
-          </div>
-        </li>
-        <!-- END timeline item -->
-        <li>
-          <i class="fa fa-clock-o bg-gray"></i>
-        </li>
-      </ul>
 
   <div class="row">
     <div class="col-lg-3 col-xs-6">
@@ -125,12 +16,12 @@
         <div class="inner">
           <h3>150</h3>
 
-          <p>New Orders</p>
+          <p>Número de Pedidos</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/pedidos" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -138,14 +29,14 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
+        <h3>R$<sup style="font-size: 20px">{{$entradas}}</sup></h3>
 
-          <p>Bounce Rate</p>
+          <p>Receita Total</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/entradas" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -153,14 +44,14 @@
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3>44</h3>
+        <h3>{{$usuarios}}</h3>
 
-          <p>User Registrations</p>
+          <p>Usarios Registrados</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/usuarios" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -168,41 +59,111 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3>65</h3>
+        <h3>{{$estoques}}</h3>
 
-          <p>Unique Visitors</p>
+          <p>Itens no Estoque</p>
         </div>
         <div class="icon">
-          <i class="ion ion-pie-graph"></i>
+            <i class="fa fa-fw fa-archive"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/estoque" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
   </div>
 
-  <div class="box box-primary box-solid  menu">
-        <div class="box-header with-border">
-          <h3 class="box-title">Removable</h3>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+
+
+      <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ultimos Pedidos</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Popularidade</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                    <td>Macarrão</td>
+                    <td><span class="label label-success">Shipped</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                    <td>Picanha</td>
+                    <td><span class="label label-warning">Pending</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td>Batata Frita</td>
+                    <td><span class="label label-danger">Delivered</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td> Sushi</td>
+                    <td><span class="label label-info">Processing</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                    <td>Alcatra</td>
+                    <td><span class="label label-warning">Pending</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td>Porção de Torresmo</td>
+                    <td><span class="label label-danger">Delivered</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                    <td>Trio Mineiro</td>
+                    <td><span class="label label-success">Shipped</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Crie um novo pedido</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Veja todos os pedidos</a>
+            </div>
+            <!-- /.box-footer -->
           </div>
-          <!-- /.box-tools -->
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          The body of the box
-        </div>
-        <!-- /.box-body -->
-      </div>
-<script>
-    $(document).ready(function () {
-        $(".menu").focus(function (e) {
-            e.preventDefault();
-
-        });
-    });
-
-</script>
 @stop
