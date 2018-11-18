@@ -8,5 +8,7 @@ class Funcionario extends Model
 {
     protected $fillable = ['nome', 'rg', 'cpf', 'email', 'telefone', 'nacionalidade',
      'cep', 'estado', 'cidade', 'bairro', 'logradouro', 'numero', 'complemento',
-     'carteira_trabalho', 'salario', 'cargo_id'];
+     'carteira_trabalho', 'salario_base', 'cargo_id'];
+
+
 }

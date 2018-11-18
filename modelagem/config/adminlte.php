@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Snowbird Financial</b>SBF',
+    'logo' => '<b>Snowbird Financial</b> <i class="fa fa-fw fa-twitter"></i>',
 
     'logo_mini' => '<b>SBF</b>',
 
@@ -124,7 +124,7 @@ return [
         [
             'text'        => 'Funcionários',
             'url'         => '/funcionarios',
-            'icon'        => 'users',
+            'icon'        => 'black-tie',
 
 
         ],

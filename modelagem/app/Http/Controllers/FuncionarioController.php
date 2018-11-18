@@ -18,7 +18,10 @@ class FuncionarioController extends Controller
         $cargos = Cargo::all();
         $funcionarios = Funcionario::select()->paginate(10);
 
-        return view('funcionarios', ['cargos' => $cargos, 'funcionarios' => $funcionarios]);
+        foreach($funcionarios as $funcionario)
+        $funcionario->cargo_id = Cargo::find($funcionario->cargo_id)->nome;
+
+        return view('funcionarios.funcionarios', ['cargos' => $cargos, 'funcionarios' => $funcionarios]);
     }
 
     /**
@@ -28,7 +31,8 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        //
+        $cargos = Cargo::all();
+        return view('funcionarios.funcionarios_create', compact('cargos'));
     }
 
     /**
@@ -40,7 +44,7 @@ class FuncionarioController extends Controller
     public function store(Request $request)
     {
         Funcionario::create($request->all());
-        return redirect()->back()->with('Sucesso', 'O funcionário foi adicionado com sucesso');
+        return redirect()->route('funcionarios.index')->with('Sucesso', 'O funcionário foi adicionado com sucesso');
     }
 
     /**
@@ -49,9 +53,10 @@ class FuncionarioController extends Controller
      * @param Funcionario $funcionario
      * @return Funcionario
      */
-    public function show(Funcionario $funcionario)
+    public function show($id)
     {
-        return $funcionario;
+        $funcionario = Funcionario::findOrFail($id);
+        return view('funcionarios.funcionarios_show', compact('funcionario'));
     }
 
     /**
@@ -62,7 +67,10 @@ class FuncionarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $funcionario = Funcionario::findOrFail($id);
+        $cargos = Cargo::all();
+
+        return view('funcionarios.funcionarios_edit', compact('funcionario','id','cargos'));
     }
 
     /**
@@ -80,7 +88,7 @@ class FuncionarioController extends Controller
         $funcionario = Funcionario::findOrFail($id);
         $funcionario->update($request->all());
 
-        return redirect()->back()->with('Sucesso', 'O funcionário foi alterado com sucesso')->withInput();
+        return redirect()->route('funcionarios.index')->with('Sucesso', 'O funcionário foi alterado com sucesso')->withInput();
     }
 
     /**
@@ -94,6 +102,6 @@ class FuncionarioController extends Controller
         $funcionario = Funcionario::findOrFail($id);
         $funcionario->delete();
 
-        return redirect()->back()->with('Sucesso', 'O funcionário foi removido com sucesso');
+        return redirect()->route('funcionarios.index')->with('Sucesso', 'O funcionário foi removido com sucesso');
     }
 }

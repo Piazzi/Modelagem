@@ -29,27 +29,31 @@
 @component('pagina-tabela')
 
         @slot('url')
-            {{route('cargos.create')}}
+        {{route('funcionarios.create')}}
         @endslot
         @slot('titulo')
-            Cargos
+            Funcionários
         @endslot
         @slot('foreach')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Cargo</th>
                 <th>Ações</th>
             </tr>
-              @foreach ($cargos as $cargo)
+              @foreach ($funcionarios as $funcionario)
               <tr>
-                <td> {{$cargo->id}} </td>
-                <td> {{$cargo->nome}} </td>
-                <td> {{$cargo->descricao}} </td>
+                <td> {{$funcionario->id}} </td>
+                <td> {{$funcionario->nome}} </td>
+                <td> {{$funcionario->telefone}} </td>
+                <td> {{$funcionario->email}}</td>
+                <td> {{$funcionario->cargo_id}}</td>
                 <td>
-                <a href="{{route('cargos.show', $cargo->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('cargos.edit', $cargo->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('cargos.destroy', $cargo->id)}}">
+                <a href="{{route('funcionarios.show', $funcionario->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                <a href="{{route('funcionarios.edit', $funcionario->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                <form method="POST" action="{{route('funcionarios.destroy', $funcionario->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
@@ -59,7 +63,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$cargos->links()}}
+            {{$funcionarios->links()}}
         @endslot
 
 @endcomponent

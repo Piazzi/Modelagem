@@ -27,6 +27,7 @@ Route::resource('/estoque', 'EstoqueController');
 Route::resource('/gastos', 'GastoController');
 Route::resource('/entradas', 'EntradaController');
 Route::resource('/usuarios', 'UsuarioController');
+Route::resource('/funcionarios', 'FuncionarioController');
 
 Route::get('/mesas', 'MesaController@index');
 Route::get('/mesas_adicionar', 'MesaController@create');
