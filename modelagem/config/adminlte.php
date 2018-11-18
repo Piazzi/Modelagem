@@ -125,22 +125,22 @@ return [
             'text'        => 'Funcionários',
             'url'         => '/funcionarios',
             'icon'        => 'users',
-            'label'       => 4,
-            'label_color' => 'success',
+
 
         ],
         [
             'text'        => 'Estoque',
             'url'         => '/estoque',
             'icon'        => 'archive',
-            'label'       => 4,
-            'label_color' => 'success',
+
 
         ],
         [
             'text' => 'Atendimento',
             'url' => 'mesas',
-            'icon' => 'coffee'
+            'icon' => 'coffee',
+            'label'       => 'Novo Cliente',
+            'label_color' => 'warning',
 
         ],
         [
