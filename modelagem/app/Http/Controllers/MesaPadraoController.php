@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\MesaPadrao;
 
 class MesaPadraoController extends Controller
@@ -25,7 +26,7 @@ class MesaPadraoController extends Controller
      */
     public function create()
     {
-        
+        return view('mesasPadrao/adicionar');
     }
 
     /**
@@ -42,7 +43,7 @@ class MesaPadraoController extends Controller
         ]);
 
         $mesa = MesaPadrao::create($request->all());
-        return redirect()->route('mesasPadrao.index')->with('Sucesso', 'A mesa foi adicionada com sucesso')->withInput();
+        return redirect()->route('mesaPadrao.index')->with('Sucesso', 'A mesa foi adicionada com sucesso')->withInput();
     }
 
     /**
@@ -65,7 +66,8 @@ class MesaPadraoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mesa = MesaPadrao::findOrFail($id);
+        return view('mesasPadrao.alterar', compact('mesa'));
     }
 
     /**
@@ -77,7 +79,13 @@ class MesaPadraoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'numero' => 'required|max:255',
+        ]);
+
+        $mesa = MesaPadrao::findOrFail($id);
+        $mesa->update($request->all());
+        return view('mesasPadrao.visualizar')->with('Sucesso','A mesa foi alterada com sucesso');
     }
 
     /**
@@ -88,6 +96,8 @@ class MesaPadraoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mesa = MesaPadrao::findOrFail($id);
+        $mesa->delete();
+        return redirect()->back()->with('Sucesso', 'A mesa foi deletada com sucesso');
     }
 }

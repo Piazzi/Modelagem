@@ -20,25 +20,32 @@
 
     @component('pagina-formulario')
         @slot('titulo')
-            Adicionar mesa
+            Abrir mesa
         @endslot
         @slot('metodo')
             POST
         @endslot
-        @slot('rota')
-            {{route('cargos.store')}}
+        @slot('url')
+            {{route('mesas.store')}}
         @endslot
         @slot('formulario')
             <div class="form-group">
-                <label>Name</label>
-                <input required value="{{old('nome')}}" name="nome" type="text" class="form-control" placeholder=" ...">
+                <label for="exampleFormControlSelect1">Selecionar mesa</label>
+                    <select class="form-control" name="mesa_id">
+                        @foreach($mesasLivres as $mesa)
+                            <option value="{{$mesa->id}}">{{$mesa->numero}}</option>
+                        @endforeach
+                    </select>
             </div>
             <div class="form-group">
-                <label>Descrição</label>
-                <input required value="{{old('descricao')}}" name="descricao" type="text" class="form-control" placeholder=" ...">
+                <label>Atendente</label>
+                <input required value="{{old('atendente')}}" name="atendente" type="text" class="form-control" placeholder="Insira o seu nome">
             </div>
+
+            <input name="mesa_fechada" value="0" type="hidden">
+
             @slot('botao')
-                Adicionar
+                Abrir mesa
             @endslot
         @endslot
     @endcomponent

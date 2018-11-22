@@ -29,7 +29,7 @@
 @component('pagina-tabela')
 
         @slot('url')
-            /mesasPadrao_adicionar
+            {{route('mesaPadrao.create')}}
         @endslot
         @slot('titulo')
             Cadastro de mesas do restaurante
@@ -42,8 +42,8 @@
               <tr>
                 <td> {{$mesa->numero}} </td>
                 <td>
-                    <a href="{{route('mesaPadrao.show', ['id' => $mesa->id] ) }}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                    <a href="{{route('mesaPadrao.edit', ['id' => $mesa->id] ) }}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                    <a href="{{ route('mesaPadrao.show', ['id' => $mesa->id] ) }}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                    <a href="{{ route('mesaPadrao.edit', ['id' => $mesa->id] ) }}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
                     <a href="{{ route('mesaPadrao.destroy', ['id' => $mesa->id] ) }}"> <button type="button" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button></a>
                 </td>
               </tr>

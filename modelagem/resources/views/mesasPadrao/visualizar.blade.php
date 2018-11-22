@@ -22,8 +22,11 @@
         @slot('titulo')
             Visualizar mesa
         @endslot
-        @slot('rota')
-            {{route('mesaPadrao.update', ['id' => $mesa->id] ) }}
+        @slot('url')
+            {{route('mesaPadrao.index')}}
+        @endslot
+        @slot('metodo')
+            GET
         @endslot
         @slot('formulario')
             <div class="form-group">

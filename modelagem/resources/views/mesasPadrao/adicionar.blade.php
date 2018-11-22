@@ -25,7 +25,7 @@
         @slot('metodo')
             POST
         @endslot
-        @slot('rota')
+        @slot('url')
             {{route('mesaPadrao.store')}}
         @endslot
         @slot('formulario')

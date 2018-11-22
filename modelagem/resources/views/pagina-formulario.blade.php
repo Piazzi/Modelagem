@@ -4,7 +4,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-        <form  method="{{$metodo}}" action="{{$rota}}" role="form" {{ csrf_token() }}>
+        <form  method="{{$metodo}}" action="{{$url}}" role="form" {{ csrf_token() }}>
             {{ csrf_field() }}
 
             {{$formulario}}

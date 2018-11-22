@@ -25,7 +25,7 @@
         @slot('metodo')
             PUT
         @endslot
-        @slot('rota')
+        @slot('url')
             {{route('cargos.update')}}
         @endslot
         @slot('formulario')

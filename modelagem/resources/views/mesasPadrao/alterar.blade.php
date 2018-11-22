@@ -20,25 +20,21 @@
 
     @component('pagina-formulario')
         @slot('titulo')
-            Adicionar Cargo
+            Alterar mesa
         @endslot
         @slot('metodo')
-            POST
+            PUT
         @endslot
         @slot('url')
-            {{route('cargos.store')}}
+            {{route('mesaPadrao.update', ['id' => $mesa->id])}}
         @endslot
         @slot('formulario')
             <div class="form-group">
-                <label>Name</label>
-                <input required value="{{old('nome')}}" name="nome" type="text" class="form-control" placeholder=" ...">
-            </div>
-            <div class="form-group">
-                <label>Descrição</label>
-                <input required value="{{old('descricao')}}" name="descricao" type="text" class="form-control" placeholder=" ...">
+                <label>Número</label>
+                <input required value="{{old('$mesa->numero')}}" name="numero" type="text" class="form-control" placeholder="{{$mesa->numero}}">
             </div>
             @slot('botao')
-                Adicionar
+                Alterar
             @endslot
         @endslot
     @endcomponent

@@ -29,24 +29,24 @@
 @component('pagina-tabela')
 
         @slot('url')
-            /mesas_adicionar
+            {{route('mesas.create')}}
         @endslot
         @slot('titulo')
-            mesas
+            Mesas Ocupadas do salão
         @endslot
         @slot('foreach')
             <tr>
                 <th>Número da mesa</th>
                 <th>Atendente</th>
+                <th>Ações</th>
             </tr>
               @foreach ($mesas as $mesa)
               <tr>
                 <td> {{$mesa->id}} </td>
                 <td> {{$mesa->atendente}} </td>
                 <td>
-                    <a href="/mesas/mesas_visualizar/{{$mesa->id}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                    <a href="/mesas/mesas_alterar/{{$mesa->id}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                    <a href="/mesas/mesas_deletar/{{$mesa->id}}"> <button type="button" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button></a>
+                    <a href="{{ route('mesas.show', $mesa ) }}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                    <a href="{{ route('mesas.edit', $mesa ) }}"> <button type="button" class="btn btn-success"><i class="fa fa-fw fa-shopping-cart"></i></button></a>
                 </td>
               </tr>
               @endforeach

@@ -19,6 +19,7 @@ class CreateTableMesas extends Migration
             $table->string('atendente', 100);
             $table->float('total_gasto', 8, 2);
             $table->integer('tempo_minutos_permanencia');
+            $table->boolean('mesa_fechada');
             $table->timestamps();
         });
     }

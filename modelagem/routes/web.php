@@ -36,13 +36,8 @@ Route::delete('/cargos/cargos_deletar/{id}', 'CargoController@destroy');
 
 
 Route::get('/mesas', 'MesaController@index');
-Route::get('/mesas_adicionar', 'MesaController@create');
-
-
+Route::resource('/mesas', 'MesaController');
 
 Route::get('/mesasPadraoListagem', 'MesaPadraoController@index');
-Route::get('/mesasPadrao_adicionar', function() {
-    return view('mesasPadrao.adicionar');
-});
 Route::resource('/mesaPadrao', 'MesaPadraoController');
 
