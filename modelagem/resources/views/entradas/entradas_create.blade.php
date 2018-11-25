@@ -20,27 +20,34 @@
 
     @component('pagina-formulario')
         @slot('titulo')
-            Alterar Cargo
+            Adicionar Receita
         @endslot
         @slot('metodo')
-            PUT
+            POST
         @endslot
-
-        @slot('url')
-            {{route('cargos.update')}}
-            
+        @slot('rota')
+            {{route('entradas.store')}}
         @endslot
         @slot('formulario')
             <div class="form-group">
-                <label>Name</label>
-            <input required value="{{$cargo->nome}}" name="nome" type="text" class="form-control" placeholder=" ...">
+                <label>Nome</label>
+                <input required value="{{old('nome')}}" name="nome" type="text" class="form-control" placeholder=" ...">
+            </div>
+            <div class="form-group">
+                <label>Valor</label>
+                <input required value="{{old('valor')}}" name="valor" type="number" class="form-control" placeholder=" ...">
+            </div>
+            <div class="form-group">
+                <label>Data</label>
+                <input required value="{{old('data')}}" name="data" type="date" class="form-control" placeholder=" ...">
             </div>
             <div class="form-group">
                 <label>Descrição</label>
-            <input required value="{{$cargo->descricao}}" name="descricao" type="text" class="form-control" placeholder=" ...">
+                <input required value="{{old('descricao')}}" name="descricao" type="textarea" class="form-control" placeholder=" ...">
             </div>
+
             @slot('botao')
-                Alterar
+                Adicionar
             @endslot
         @endslot
     @endcomponent

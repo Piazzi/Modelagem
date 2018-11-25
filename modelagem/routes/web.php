@@ -23,17 +23,11 @@ Route::get('/financeiro', function(){
 });
 
 Route::resource('/cargos', 'CargoController');
-Route::get('/cargos_adicionar', function() {
-    return view('cargos.cargos_adicionar');
-});
-Route::get('/cargos/cargos_visualizar', function(){
-    return view('cargos.cargos_visualizar');
-});
-
-Route::get('/cargos/cargos_visualizar/{id}', 'CargoController@show');
-Route::put('/cargos/cargos_alterar/{id}','CargoController@update');
-Route::delete('/cargos/cargos_deletar/{id}', 'CargoController@destroy');
-
+Route::resource('/estoque', 'EstoqueController');
+Route::resource('/gastos', 'GastoController');
+Route::resource('/entradas', 'EntradaController');
+Route::resource('/usuarios', 'UsuarioController');
+Route::resource('/funcionarios', 'FuncionarioController');
 
 Route::get('/mesas', 'MesaController@index');
 Route::resource('/mesas', 'MesaController');

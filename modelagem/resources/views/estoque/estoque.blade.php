@@ -29,27 +29,34 @@
 @component('pagina-tabela')
 
         @slot('url')
-            {{route('cargos.create')}}
+            {{route('estoque.create')}}
         @endslot
         @slot('titulo')
-            Cargos
+            Estoque
         @endslot
         @slot('foreach')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Quantidade Minima</th>
+                <th>Valor de Compra</th>
+                <th>Valor de Venda</th>
                 <th>Ações</th>
             </tr>
-              @foreach ($cargos as $cargo)
+              @foreach ($estoque as $e)
               <tr>
-                <td> {{$cargo->id}} </td>
-                <td> {{$cargo->nome}} </td>
-                <td> {{$cargo->descricao}} </td>
+                <td> {{$e->id}} </td>
+                <td> {{$e->nome}} </td>
+                <td> {{$e->quantidade}} </td>
+                <td> {{$e->quantidade_minima}} </td>
+                <td> {{$e->valor_compra}} </td>
+                <td> {{$e->valor_venda}} </td>
+
                 <td>
-                <a href="{{route('cargos.show', $cargo->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('cargos.edit', $cargo->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('cargos.destroy', $cargo->id)}}">
+                <a href="{{route('estoque.show', $e->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                <a href="{{route('estoque.edit', $e->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                <form method="POST" action="{{route('estoque.destroy', $e->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
@@ -59,7 +66,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$cargos->links()}}
+            {{$estoque->links()}}
         @endslot
 
 @endcomponent

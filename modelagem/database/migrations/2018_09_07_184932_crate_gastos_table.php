@@ -19,13 +19,10 @@ class CrateGastosTable extends Migration
             $table->decimal('valor', 8, 2);
             $table->date('data');
             $table->string('descricao', 255)->nullable();
+            $table->boolean('pago')->nullable();
             $table->timestamps();
         });
 
-        Schema::table('gastos', function(Blueprint $table){
-            $table->unsignedInteger('categoria_gasto_id');
-            $table->foreign('categoria_gasto_id')->references('id')->on('categoria_gasto')->onDelete('cascade');
-        });
     }
 
     /**

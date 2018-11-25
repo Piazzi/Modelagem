@@ -29,7 +29,7 @@
 @component('pagina-tabela')
 
         @slot('url')
-            {{route('cargos.create')}}
+            {{route('usuarios.create')}}
         @endslot
         @slot('titulo')
             Cargos
@@ -38,18 +38,20 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
+                <th>Email</th>
+                <th>Categoria</th>
                 <th>Ações</th>
             </tr>
-              @foreach ($cargos as $cargo)
+              @foreach ($usuarios as $usuario)
               <tr>
-                <td> {{$cargo->id}} </td>
-                <td> {{$cargo->nome}} </td>
-                <td> {{$cargo->descricao}} </td>
+                <td> {{$usuario->id}} </td>
+                <td> {{$usuario->name}} </td>
+                <td> {{$usuario->email}} </td>
+                <td> {{$usuario->categoria}}</td>
                 <td>
-                <a href="{{route('cargos.show', $cargo->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('cargos.edit', $cargo->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('cargos.destroy', $cargo->id)}}">
+                <a href="{{route('usuarios.show', $usuario->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                <a href="{{route('usuarios.edit', $usuario->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                <form method="POST" action="{{route('usuarios.destroy', $usuario->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
@@ -59,7 +61,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$cargos->links()}}
+            {{$usuarios->links()}}
         @endslot
 
 @endcomponent

@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Snowbird Financial</b>SBF',
+    'logo' => '<b>Snowbird Financial</b> <i class="fa fa-fw fa-twitter"></i>',
 
     'logo_mini' => '<b>SBF</b>',
 
@@ -117,40 +117,52 @@ return [
         [
             'text'        => 'Financeiro',
             'url'         => '/financeiro',
-            'icon'        => 'file',
+            'icon'        => 'bar-chart',
             'label'       => 4,
             'label_color' => 'success',
         ],
         [
             'text'        => 'Funcionários',
             'url'         => '/funcionarios',
-            'icon'        => 'users',
-            'label'       => 4,
-            'label_color' => 'success',
+            'icon'        => 'black-tie',
+
 
         ],
         [
             'text'        => 'Estoque',
             'url'         => '/estoque',
             'icon'        => 'archive',
-            'label'       => 4,
-            'label_color' => 'success',
+
 
         ],
         [
             'text' => 'Atendimento',
             'url' => 'mesas',
-            'icon' => 'coffee'
+            'icon' => 'coffee',
+            'label'       => 'Novo Cliente',
+            'label_color' => 'warning',
+
+        ],
+        [
+            'text' => 'Despesas',
+            'url' => 'gastos',
+            'icon' => 'dollar'
+
+        ],
+        [
+            'text' => 'Receitas',
+            'url' => 'entradas',
+            'icon' => 'bank'
 
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'text' => 'Usuários do Sistema',
+            'url'  => '/usuarios',
+            'icon' => 'users',
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Mudar Senha',
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],
@@ -168,14 +180,11 @@ return [
                     'url' => '/cargos',
                 ],
                 [
-                    'text' => 'Categoria de Entrada',
-                    'url' => '#',
+                    'text' => 'Funcionarios',
+                    'url' => '/funcionarios',
 
                 ],
-                [
-                    'text' => 'Categoria de Gasto',
-                    'url' => '#',
-                ],
+
             ],
         ],
 

@@ -29,27 +29,32 @@
 @component('pagina-tabela')
 
         @slot('url')
-            {{route('cargos.create')}}
+            {{route('entradas.create')}}
         @endslot
         @slot('titulo')
-            Cargos
+            Receitas
         @endslot
         @slot('foreach')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
+                <th>Valor</th>
+                <th>Data</th>
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
-              @foreach ($cargos as $cargo)
+              @foreach ($entradas as $entrada)
               <tr>
-                <td> {{$cargo->id}} </td>
-                <td> {{$cargo->nome}} </td>
-                <td> {{$cargo->descricao}} </td>
+                <td> {{$entrada->id}} </td>
+                <td> {{$entrada->nome}} </td>
+                <td> {{$entrada->valor}} </td>
+                <td> {{$entrada->data}} </td>
+                <td> {{$entrada->descricao}} </td>
+
                 <td>
-                <a href="{{route('cargos.show', $cargo->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('cargos.edit', $cargo->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('cargos.destroy', $cargo->id)}}">
+                <a href="{{route('entradas.show', $entrada->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                <a href="{{route('entradas.edit', $entrada->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                <form method="POST" action="{{route('entradas.destroy', $entrada->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
@@ -59,7 +64,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$cargos->links()}}
+            {{$entradas->links()}}
         @endslot
 
 @endcomponent

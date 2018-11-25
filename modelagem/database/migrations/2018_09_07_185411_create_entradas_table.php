@@ -23,10 +23,7 @@ class CreateEntradasTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('entradas', function (Blueprint $table) {
-            $table->unsignedInteger('categoria_entrada_id');
-            $table->foreign('categoria_entrada_id')->references('id')->on('categoria_entrada')->onDelete('cascade');
-        });
+
     }
 
     /**

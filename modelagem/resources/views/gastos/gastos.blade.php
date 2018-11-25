@@ -29,27 +29,34 @@
 @component('pagina-tabela')
 
         @slot('url')
-            {{route('cargos.create')}}
+            {{route('gastos.create')}}
         @endslot
         @slot('titulo')
-            Cargos
+            Despesas
         @endslot
         @slot('foreach')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
+                <th>Valor</th>
+                <th>Data</th>
                 <th>Descrição</th>
+                <th>Pago</th>
                 <th>Ações</th>
             </tr>
-              @foreach ($cargos as $cargo)
+              @foreach ($gastos as $gasto)
               <tr>
-                <td> {{$cargo->id}} </td>
-                <td> {{$cargo->nome}} </td>
-                <td> {{$cargo->descricao}} </td>
+                <td> {{$gasto->id}} </td>
+                <td> {{$gasto->nome}} </td>
+                <td> {{$gasto->valor}} </td>
+                <td> {{$gasto->data}} </td>
+                <td> {{$gasto->descricao}} </td>
+                <td> {{$gasto->pago}} </td>
+
                 <td>
-                <a href="{{route('cargos.show', $cargo->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('cargos.edit', $cargo->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('cargos.destroy', $cargo->id)}}">
+                <a href="{{route('gastos.show', $gasto->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                <a href="{{route('gastos.edit', $gasto->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                <form method="POST" action="{{route('gastos.destroy', $gasto->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
@@ -59,7 +66,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$cargos->links()}}
+            {{$gastos->links()}}
         @endslot
 
 @endcomponent

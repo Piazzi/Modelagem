@@ -13,28 +13,38 @@ class EntradaController extends Controller
     public function index()
     {
         $entradas = Entrada::select()->paginate(10);
-        $categoriasEntrada = Categoria_Entrada::all();
 
-        return view('entradas', compact('entradas', 'categoriasEntrada'));
+        return view('entradas.entradas', compact('entradas'));
+    }
+
+    public function create()
+    {
+        return view('entradas.entradas_create');
     }
 
     public function store(Request $request)
     {
         Entrada::create($request->all());
-        return redirect()->back()->with('Sucesso', 'A entrada foi adicionada com sucesso');
+        return redirect()->route('entradas.index')->with('Sucesso', 'A entrada foi adicionada com sucesso');
     }
 
-    public function show(Entrada $entrada) {
-        return $entrada;
+    public function show($id) {
+         $entrada = Entrada::findOrFail($id);
+         return view('entradas.entradas_show', compact('entrada'));
+    }
+
+    public function edit($id) {
+        $entrada = Entrada::FindOrFail($id);
+        return view('entradas.entradas_edit', compact('entrada','id'));
     }
 
     public function update(Request $request, $id) {
         Entrada::findOrFail($id)->update($request->all());
-        return redirect()->back()->with('Sucesso', 'A entrada foi alterada com sucesso');
+        return redirect()->route('entradas.index')->with('Sucesso', 'A entrada foi alterada com sucesso');
     }
 
     public function destroy($id) {
         Entrada::findOrFail($id)->delete();
-        return redirect()->back()->with('Sucesso', 'A entrada foi deletada com sucesso');
+        return redirect()->route('entradas.index')->with('Sucesso', 'A entrada foi deletada com sucesso');
     }
 }

@@ -20,27 +20,29 @@
 
     @component('pagina-formulario')
         @slot('titulo')
-            Alterar Cargo
+            Visualizar Usuário
         @endslot
         @slot('metodo')
-            PUT
+            GET
         @endslot
-
-        @slot('url')
-            {{route('cargos.update')}}
-            
+        @slot('rota')
+            /usuarios
         @endslot
         @slot('formulario')
             <div class="form-group">
-                <label>Name</label>
-            <input required value="{{$cargo->nome}}" name="nome" type="text" class="form-control" placeholder=" ...">
+                <label>Nome</label>
+                <label class="form-control">{{$usuario->name}}</label>
             </div>
             <div class="form-group">
-                <label>Descrição</label>
-            <input required value="{{$cargo->descricao}}" name="descricao" type="text" class="form-control" placeholder=" ...">
+                <label>Email</label>
+                <label class="form-control">{{$usuario->email}}</label>
+            </div>
+            <div class="form-group">
+                <label>Categoria do Usuário</label>
+                <label class="form-control">{{$usuario->categoria}}</label>
             </div>
             @slot('botao')
-                Alterar
+                Voltar
             @endslot
         @endslot
     @endcomponent
