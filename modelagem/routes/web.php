@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('vendor.adminlte.login');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
