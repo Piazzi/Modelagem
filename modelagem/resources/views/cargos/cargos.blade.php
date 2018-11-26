@@ -34,13 +34,15 @@
         @slot('titulo')
             Cargos
         @endslot
-        @slot('foreach')
+        @slot('thead')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
+        @endslot
+        @slot('foreach')
               @foreach ($cargos as $cargo)
               <tr>
                 <td> {{$cargo->id}} </td>

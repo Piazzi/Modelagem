@@ -34,10 +34,13 @@
         @slot('titulo')
             Cadastro de mesas do restaurante
         @endslot
-        @slot('foreach')
+        @slot('thead')
             <tr>
                 <th>Número da mesa</th>
             </tr>
+        @endslot
+        @slot('foreach')
+
               @foreach ($mesas as $mesa)
               <tr>
                 <td> {{$mesa->numero}} </td>
@@ -50,7 +53,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            
+
         @endslot
 
 @endcomponent

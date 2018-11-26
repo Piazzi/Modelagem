@@ -34,7 +34,7 @@
         @slot('titulo')
             Receitas
         @endslot
-        @slot('foreach')
+        @slot('thead')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -43,6 +43,8 @@
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
+        @endslot
+        @slot('foreach')
               @foreach ($entradas as $entrada)
               <tr>
                 <td> {{$entrada->id}} </td>

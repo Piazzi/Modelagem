@@ -34,8 +34,8 @@
         @slot('titulo')
             Estoque
         @endslot
-        @slot('foreach')
-            <tr>
+        @slot('thead')
+        <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Quantidade</th>
@@ -43,7 +43,10 @@
                 <th>Valor de Compra</th>
                 <th>Valor de Venda</th>
                 <th>Ações</th>
-            </tr>
+        </tr>
+        @endslot
+        @slot('foreach')
+
               @foreach ($estoque as $e)
               <tr>
                 <td> {{$e->id}} </td>

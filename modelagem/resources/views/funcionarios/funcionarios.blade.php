@@ -34,7 +34,7 @@
         @slot('titulo')
             Funcionários
         @endslot
-        @slot('foreach')
+        @slot('thead')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -43,6 +43,9 @@
                 <th>Cargo</th>
                 <th>Ações</th>
             </tr>
+        @endslot
+        @slot('foreach')
+
               @foreach ($funcionarios as $funcionario)
               <tr>
                 <td> {{$funcionario->id}} </td>

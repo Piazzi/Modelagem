@@ -34,12 +34,15 @@
         @slot('titulo')
             Mesas Ocupadas do salão
         @endslot
-        @slot('foreach')
+        @slot('thead')
             <tr>
                 <th>Número da mesa</th>
                 <th>Atendente</th>
                 <th>Ações</th>
             </tr>
+        @endslot
+        @slot('foreach')
+
               @foreach ($mesas as $mesa)
               <tr>
                 <td> {{$mesa->id}} </td>
@@ -52,7 +55,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            
+
         @endslot
 
 @endcomponent

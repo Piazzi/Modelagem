@@ -34,7 +34,7 @@
         @slot('titulo')
             Despesas
         @endslot
-        @slot('foreach')
+        @slot('thead')
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -44,6 +44,9 @@
                 <th>Pago</th>
                 <th>Ações</th>
             </tr>
+        @endslot
+        @slot('foreach')
+
               @foreach ($gastos as $gasto)
               <tr>
                 <td> {{$gasto->id}} </td>

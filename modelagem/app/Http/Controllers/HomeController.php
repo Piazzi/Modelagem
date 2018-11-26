@@ -8,6 +8,7 @@ use App\Entrada;
 use App\Estoque;
 use App\Funcionario;
 
+
 class HomeController extends Controller
 {
     /**
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $entradas = Entrada::all()->count();
         $estoques = Estoque::all()->count();
         $funcionarios = Funcionario::all()->count();
-        return view('home' , compact('usuarios','entradas','estoques','funcionarios'));
+        $estoque = Estoque::select()->paginate(10);
+        return view('home' , compact('usuarios','entradas','estoques','funcionarios','estoque'));
     }
 }
