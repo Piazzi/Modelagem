@@ -35,6 +35,13 @@ class EstoqueController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'quantidade' => 'required|numeric',
+            'quantidade_minima' => 'required|numeric',
+            'valor_compra' => 'required|numeric',
+            'valor_venda' => 'required|numeric',
+        ]);
         $estoque = Estoque::create($request->all());
         return redirect()->route('estoque.index')->with('Sucesso', 'O produto foi adicionado com sucesso');
     }
@@ -72,6 +79,13 @@ class EstoqueController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'quantidade' => 'required|numeric',
+            'quantidade_minima' => 'required|numeric',
+            'valor_compra' => 'required|numeric',
+            'valor_venda' => 'required|numeric',
+        ]);
         $estoque = Estoque::findOrFail($id);
         $estoque->update($request->all());
         return redirect()->route('estoque.index')->with('Sucesso', 'O produto foi alterado com sucesso');

@@ -43,6 +43,23 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'nacionalidade' => 'required|string',
+            'telefone' => 'required|string',
+            'email' => 'required|email',
+            'rg' => 'required',
+            'cpf' => 'required',
+            'carteira_de_trabalho' => 'required',
+            'salario_base' => 'required|numeric',
+            'cidade' => 'required|string',
+            'estado' => 'required',
+            'cep' => 'required',
+            'bairro' => 'required',
+            'logradouro' => 'required',
+            'numero' => 'numeric|required',
+            'complemento' => 'nullable',
+        ]);
         Funcionario::create($request->all());
         return redirect()->route('funcionarios.index')->with('Sucesso', 'O funcionário foi adicionado com sucesso');
     }
@@ -85,6 +102,24 @@ class FuncionarioController extends Controller
         /**
          * @var Funcionario $funcionario
          */
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'nacionalidade' => 'required|string',
+            'cargo' => 'required',
+            'telefone' => 'required|string',
+            'email' => 'required|email',
+            'rg' => 'required',
+            'cpf' => 'required',
+            'carteira_de_trabalho' => 'required',
+            'salario_base' => 'required|numeric',
+            'cidade' => 'required|string',
+            'estado' => 'required',
+            'cep' => 'required',
+            'bairro' => 'required',
+            'logradouro' => 'required',
+            'numero' => 'numeric|required',
+            'complemento' => 'nullable',
+        ]);
         $funcionario = Funcionario::findOrFail($id);
         $funcionario->update($request->all());
 

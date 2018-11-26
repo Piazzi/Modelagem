@@ -30,7 +30,7 @@
         @endslot
         @slot('formulario')
             <div class="form-group">
-                <label>Name</label>
+                <label>Nome</label>
                 <input required value="{{old('nome')}}" name="nome" type="text" class="form-control" placeholder=" ...">
             </div>
             <div class="form-group">

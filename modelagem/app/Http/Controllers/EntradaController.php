@@ -24,6 +24,12 @@ class EntradaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'valor' => 'required|numeric',
+            'data' => 'required',
+            'descricao' => 'nullable',
+        ]);
         Entrada::create($request->all());
         return redirect()->route('entradas.index')->with('Sucesso', 'A entrada foi adicionada com sucesso');
     }
@@ -39,6 +45,12 @@ class EntradaController extends Controller
     }
 
     public function update(Request $request, $id) {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'valor' => 'required|numeric',
+            'data' => 'required',
+            'descricao' => 'nullable',
+        ]);
         Entrada::findOrFail($id)->update($request->all());
         return redirect()->route('entradas.index')->with('Sucesso', 'A entrada foi alterada com sucesso');
     }

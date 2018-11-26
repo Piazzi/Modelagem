@@ -35,6 +35,14 @@ class GastoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'valor' => 'required|numeric',
+            'data' => 'required|date',
+            'descricao' => 'required|string',
+            'pago' => 'required|boolean',
+
+        ]);
         $gasto = Gasto::create($request->all());
         return redirect()->route('gastos.index')->with('Sucesso', 'O gasto foi adicionado com sucesso');
     }
@@ -72,6 +80,14 @@ class GastoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'valor' => 'required|numeric',
+            'data' => 'required|date',
+            'descricao' => 'required|string',
+            'pago' => 'required|boolean',
+
+        ]);
         $Gasto = Gasto::findOrFail($id);
         $Gasto->update($request->all());
         return redirect()->route('gastos.index')->with('Sucesso', 'O gasto foi alterado com sucesso');

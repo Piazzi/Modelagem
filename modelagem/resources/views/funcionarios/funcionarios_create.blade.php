@@ -159,7 +159,7 @@
                 </div>
                 <div class="form-group col-md-12">
                         <label>Complemento</label>
-                        <textarea required type="textarea" name="complemento" class="form-control" value="{{old('complemento')}}"></textarea>
+                        <textarea  type="textarea" name="complemento" class="form-control" value="{{old('complemento')}}"></textarea>
                 </div>
             </div>
 
