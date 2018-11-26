@@ -25,7 +25,7 @@
         @slot('metodo')
             POST
         @endslot
-        @slot('url')
+        @slot('rota')
             {{route('cargos.store')}}
         @endslot
         @slot('formulario')

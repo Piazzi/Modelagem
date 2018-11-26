@@ -26,9 +26,9 @@
             PUT
         @endslot
 
-        @slot('url')
-            {{route('cargos.update')}}
-            
+        @slot('rota')
+            {{route('cargos.update', $cargo->id)}}
+
         @endslot
         @slot('formulario')
             <div class="form-group">

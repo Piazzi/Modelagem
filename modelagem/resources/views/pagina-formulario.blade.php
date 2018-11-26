@@ -4,7 +4,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-        <form  method="{{$metodo}}" action="{{$rota}}" role="form" {{ csrf_token() }}>
+        <form  method="POST" action="{{$rota}}" role="form" {{ csrf_token() }}>
 
             {{ csrf_field() }}
         <input type="hidden" name="_method" value="{{$metodo}}">
