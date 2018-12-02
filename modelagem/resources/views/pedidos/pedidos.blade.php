@@ -29,34 +29,46 @@
 @component('pagina-tabela')
 
         @slot('url')
-            {{route('entradas.create')}}
+            {{route('pedidos.create')}}
         @endslot
         @slot('titulo')
-            Receitas
+            Pedidos
         @endslot
         @slot('thead')
-            <tr>
+        <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>Itens</th>
+                <th>Mesa</th>
+                <th>Cliente</th>
                 <th>Valor</th>
-                <th>Data</th>
-                <th>Descrição</th>
+                <th>Atendente</th>
+                <th>Status</th>
                 <th>Ações</th>
-            </tr>
+        </tr>
         @endslot
         @slot('foreach')
-              @foreach ($entradas as $entrada)
-              <tr>
-                <td> {{$entrada->id}} </td>
-                <td> {{$entrada->nome}} </td>
-                <td> {{$entrada->valor}} </td>
-                <td> {{$entrada->data}} </td>
-                <td> {{$entrada->descricao}} </td>
 
+              @foreach ($pedidos as $pedido)
+              <tr>
+                <td> {{$pedido->id}} </td>
+                <td> {{$pedido->itens}} </td>
+                <td> {{$pedido->mesa}} </td>
+                <td> {{$pedido->cliente}} </td>
+                <td> {{$pedido->valor}} </td>
+                <td> {{$pedido->atendente}} </td>
+                    @if($pedido->status == 'em_andamento')
+                    <td><span class="label label-warning">{{$pedido->status}}</span></td>
+                    @endif
+                    @if($pedido->status == 'atrasado')
+                    <td><span class="label label-danger">{{$pedido->status}}</span></td>
+                    @endif
+                    @if($pedido->status == 'fechado')
+                    <td><span class="label label-success">{{$pedido->status}}</span></td>
+                    @endif
                 <td>
-                <a href="{{route('entradas.show', $entrada->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('entradas.edit', $entrada->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('entradas.destroy', $entrada->id)}}">
+                <a href="{{route('pedidos.show', $pedido->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                <a href="{{route('pedidos.edit', $pedido->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
+                <form method="POST" action="{{route('pedidos.destroy', $pedido->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
@@ -66,7 +78,6 @@
               @endforeach
         @endslot
         @slot('paginacao')
-
         @endslot
 
 @endcomponent

@@ -17,7 +17,7 @@ class CargoController extends Controller
      */
     public function index()
     {
-        $cargos = Cargo::select()->paginate(10);
+        $cargos = Cargo::all();
 
        /* foreach ($cargos as $c) {
             $c->setor_id = Setor::find($c->setor_id)->nome;

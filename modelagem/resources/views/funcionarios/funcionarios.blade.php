@@ -66,7 +66,6 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$funcionarios->links()}}
         @endslot
 
 @endcomponent

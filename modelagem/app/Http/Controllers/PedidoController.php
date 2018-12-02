@@ -14,7 +14,8 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        $pedidos = Pedido::all();
+        return view('pedidos.pedidos', compact('pedidos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pedidos.pedidos_create');
     }
 
     /**
@@ -35,7 +36,15 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cliente' => 'required|max:255',
+            'valor' => 'required|numeric',
+            'atendente' => 'required',
+            'mesa' => 'required|numeric',
+            'itens' => 'required',
+        ]);
+        Pedido::create($request->all());
+        return redirect()->route('pedidos.index')->with('Sucesso', 'O pedido foi adicionado com sucesso')->withInput();
     }
 
     /**
@@ -46,7 +55,8 @@ class PedidoController extends Controller
      */
     public function show($id)
     {
-        //
+        $pedido = Pedido::findOrFail($id);
+        return view('pedidos.pedidos_show', compact('pedido','id'));
     }
 
     /**
@@ -57,7 +67,8 @@ class PedidoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pedido = Pedido::findOrFail($id);
+        return view('pedidos.pedidos_edit', compact('pedido','id'));
     }
 
     /**
@@ -69,7 +80,18 @@ class PedidoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'cliente' => 'required|max:255',
+            'valor' => 'required|numeric',
+            'atendente' => 'required',
+            'mesa' => 'required|numeric',
+            'itens' => 'required',
+        ]);
+        $pedido = Pedido::findOrFail($id);
+        $pedido->update($request->all());
+
+        return redirect()->route('pedidos.index')->with('Sucesso', 'O pedido foi alterado com sucesso')->withInput();
+
     }
 
     /**
@@ -80,6 +102,9 @@ class PedidoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pedido = Pedido::findOrFail($id);
+        $pedido->delete();
+        return redirect()->route('pedidos.index')->with('Sucesso', 'O pedido foi deletado com sucesso');
+
     }
 }

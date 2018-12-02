@@ -61,7 +61,7 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$cargos->links()}}
+
         @endslot
 
 @endcomponent

@@ -115,10 +115,17 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Pedidos',
+            'url'         => '/pedidos',
+            'icon'        => 'cutlery',
+            'label'       => 'Novo Pedido Pronto',
+            'label_color' => 'warning',
+        ],
+        [
             'text'        => 'Financeiro',
             'url'         => '/financeiro',
             'icon'        => 'bar-chart',
-            'label'       => 4,
+            'label'       => '',
             'label_color' => 'success',
         ],
         [
@@ -139,8 +146,6 @@ return [
             'text' => 'Atendimento',
             'url' => 'mesas',
             'icon' => 'coffee',
-            'label'       => 'Novo Cliente',
-            'label_color' => 'warning',
 
         ],
         [
@@ -161,11 +166,7 @@ return [
             'url'  => '/usuarios',
             'icon' => 'users',
         ],
-        [
-            'text' => 'Mudar Senha',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
+
         [
             'text' => 'Mesas do restaurante',
             'url'  => 'mesasPadraoListagem',

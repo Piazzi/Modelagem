@@ -12,7 +12,7 @@
 
           <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
-              <input id="table-search-input" type="text" class="form-control pull-right" placeholder="Search">
+              <input id="table-search-input" type="text" class="form-control pull-right" placeholder="Procure...">
               <div class="input-group-btn">
                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
               </div>

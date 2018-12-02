@@ -95,3 +95,12 @@
         </div>
     </body>
 </html>
+
+<div class="row">
+     <div class="col-xs-6">
+        telefone
+     </div>
+     <div class="col-xs-6">
+        email
+     </div>
+</div>

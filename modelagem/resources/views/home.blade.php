@@ -14,7 +14,7 @@
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{$pedidosCont}}</h3>
 
           <p>Número de Pedidos</p>
         </div>
@@ -77,8 +77,16 @@
 
       <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Ultimos Pedidos</h3>
 
+              <h3 class="box-title">Ultimos Pedidos</h3>
+                <div style="" class="box-tools pull-left">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input id="table-search-input" type="text" class="form-control pull-right" placeholder="Procure...">
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                </div>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -92,68 +100,38 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Item</th>
+                    <th>Itens</th>
                     <th>Status</th>
-                    <th>Popularidade</th>
+                    <th>Mesa</th>
+                    <th>Atendente</th>
+                    <th>Nome do Cliente</th>
+                    <th></th>
                   </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="table-search">
+                  @foreach($pedidos as $pedido)
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Macarrão</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                    <td><a href="pages/examples/invoice.html">{{$pedido->id}}</a></td>
+                    <td>{{$pedido->itens}}</td>
+                    @if($pedido->status == 'em_andamento')
+                    <td><span class="label label-warning">{{$pedido->status}}</span></td>
+                    @endif
+                    @if($pedido->status == 'atrasado')
+                    <td><span class="label label-danger">{{$pedido->status}}</span></td>
+                    @endif
+                    @if($pedido->status == 'fechado')
+                    <td><span class="label label-success">{{$pedido->status}}</span></td>
+                    @endif
+                    <td> {{$pedido->mesa}} </td>
+                    <td>{{$pedido->atendente }}</td>
+                    <td>{{$pedido->cliente}}</td>
+                    <td class="pull-right">
+                    <a href="{{route('pedidos.show', $pedido->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
+                    <a href="{{route('pedidos.edit', $pedido->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
                     </td>
                   </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Picanha</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Batata Frita</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td> Sushi</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Alcatra</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Porção de Torresmo</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Trio Mineiro</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
+                  @endforeach
+
                   </tbody>
                 </table>
               </div>
@@ -161,8 +139,8 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Crie um novo pedido</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Veja todos os pedidos</a>
+              <a href="{{route('pedidos.create')}}" class="btn btn-sm btn-info btn-flat pull-left">Crie um novo pedido</a>
+              <a href="/pedidos" class="btn btn-sm btn-info btn-flat pull-right">Veja todos os pedidos</a>
             </div>
             <!-- /.box-footer -->
           </div>

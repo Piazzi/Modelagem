@@ -13,7 +13,7 @@ class GastoController extends Controller
      */
     public function index()
     {
-        $gastos = Gasto::select()->paginate(10);
+        $gastos = Gasto::all();
         return view ('gastos.gastos', compact ('gastos'));
     }
 

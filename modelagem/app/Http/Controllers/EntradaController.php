@@ -12,7 +12,7 @@ class EntradaController extends Controller
 {
     public function index()
     {
-        $entradas = Entrada::select()->paginate(10);
+        $entradas = Entrada::all();
 
         return view('entradas.entradas', compact('entradas'));
     }

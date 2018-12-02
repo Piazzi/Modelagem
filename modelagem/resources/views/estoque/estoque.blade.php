@@ -69,7 +69,6 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$estoque->links()}}
         @endslot
 
 @endcomponent

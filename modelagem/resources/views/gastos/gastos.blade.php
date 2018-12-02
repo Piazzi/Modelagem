@@ -69,7 +69,6 @@
               @endforeach
         @endslot
         @slot('paginacao')
-            {{$gastos->links()}}
         @endslot
 
 @endcomponent

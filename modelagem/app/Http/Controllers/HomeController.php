@@ -7,7 +7,7 @@ use App\User;
 use App\Entrada;
 use App\Estoque;
 use App\Funcionario;
-
+use App\Pedido;
 
 class HomeController extends Controller
 {
@@ -33,6 +33,8 @@ class HomeController extends Controller
         $estoques = Estoque::all()->count();
         $funcionarios = Funcionario::all()->count();
         $estoque = Estoque::select()->paginate(10);
-        return view('home' , compact('usuarios','entradas','estoques','funcionarios','estoque'));
+        $pedidos = Pedido::all();
+        $pedidosCont = Pedido::all()->count();
+        return view('home' , compact('usuarios','entradas','estoques','funcionarios','estoque','pedidos','pedidosCont'));
     }
 }

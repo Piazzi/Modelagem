@@ -16,7 +16,7 @@ class FuncionarioController extends Controller
     public function index()
     {
         $cargos = Cargo::all();
-        $funcionarios = Funcionario::select()->paginate(10);
+        $funcionarios = Funcionario::all();
 
         foreach($funcionarios as $funcionario)
         $funcionario->cargo_id = Cargo::find($funcionario->cargo_id)->nome;
