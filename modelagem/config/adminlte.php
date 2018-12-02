@@ -32,7 +32,7 @@ return [
 
     'logo' => '<b>Snowbird Financial</b> <i class="fa fa-fw fa-twitter"></i>',
 
-    'logo_mini' => '<b>SBF</b>',
+    'logo_mini' => '<b><i class="fa fa-fw fa-twitter"></i></b>',
 
     /*
     |--------------------------------------------------------------------------
