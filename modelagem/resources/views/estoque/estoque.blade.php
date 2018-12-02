@@ -42,7 +42,9 @@
                 <th>Quantidade Minima</th>
                 <th>Valor de Compra</th>
                 <th>Valor de Venda</th>
-                <th>Ações</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Excluir</th>
         </tr>
         @endslot
         @slot('foreach')
@@ -56,10 +58,9 @@
                 <td> {{$e->valor_compra}} </td>
                 <td> {{$e->valor_venda}} </td>
 
-                <td>
-                <a href="{{route('estoque.show', $e->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('estoque.edit', $e->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('estoque.destroy', $e->id)}}">
+                <td><a href="{{route('estoque.show', $e->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a></td>
+                <td><a href="{{route('estoque.edit', $e->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a></td>
+                <td><form method="POST" action="{{route('estoque.destroy', $e->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>

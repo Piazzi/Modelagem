@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'NAVEGAÇÃO PRINCIPAL',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
@@ -142,12 +142,7 @@ return [
 
 
         ],
-        [
-            'text' => 'Atendimento',
-            'url' => 'mesas',
-            'icon' => 'coffee',
 
-        ],
         [
             'text' => 'Despesas',
             'url' => 'gastos',
@@ -160,18 +155,13 @@ return [
             'icon' => 'bank'
 
         ],
-        'ACCOUNT SETTINGS',
+        'SISTEMA',
         [
             'text' => 'Usuários do Sistema',
             'url'  => '/usuarios',
             'icon' => 'users',
         ],
 
-        [
-            'text' => 'Mesas do restaurante',
-            'url'  => 'mesasPadraoListagem',
-            'icon' => 'archive',
-        ],
         [
             'text' => 'Sistema',
             'icon' => 'share',

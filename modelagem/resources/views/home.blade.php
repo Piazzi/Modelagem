@@ -78,16 +78,17 @@
       <div class="box box-info">
             <div class="box-header with-border">
 
-              <h3 class="box-title">Ultimos Pedidos</h3>
-                <div style="" class="box-tools pull-left">
+              <h3 class="box-title" style="text-align:center">Últimos Pedidos</h3>
+
+                <div  class="box-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                      <input id="table-search-input" type="text" class="form-control pull-right" placeholder="Procure...">
+                      <input id="table-search-input" type="text" class="form-control" placeholder="Procure...">
                       <div class="input-group-btn">
                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                       </div>
                     </div>
                 </div>
-              <div class="box-tools pull-right">
+              <div  class="box-tools pull-left">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -139,7 +140,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="{{route('pedidos.create')}}" class="btn btn-sm btn-info btn-flat pull-left">Crie um novo pedido</a>
+              <a href="{{route('pedidos.create')}}" class="btn btn-sm btn-info btn-flat pull-left"><i class="fa fa-fw fa-plus"></i> Novo pedido</a>
               <a href="/pedidos" class="btn btn-sm btn-info btn-flat pull-right">Veja todos os pedidos</a>
             </div>
             <!-- /.box-footer -->

@@ -41,7 +41,9 @@
                 <th>Telefone</th>
                 <th>Email</th>
                 <th>Cargo</th>
-                <th>Ações</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         @endslot
         @slot('foreach')
@@ -53,10 +55,9 @@
                 <td> {{$funcionario->telefone}} </td>
                 <td> {{$funcionario->email}}</td>
                 <td> {{$funcionario->cargo_id}}</td>
-                <td>
-                <a href="{{route('funcionarios.show', $funcionario->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('funcionarios.edit', $funcionario->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('funcionarios.destroy', $funcionario->id)}}">
+                <td><a href="{{route('funcionarios.show', $funcionario->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a></td>
+                <td><a href="{{route('funcionarios.edit', $funcionario->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a></td>
+                <td><form method="POST" action="{{route('funcionarios.destroy', $funcionario->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>

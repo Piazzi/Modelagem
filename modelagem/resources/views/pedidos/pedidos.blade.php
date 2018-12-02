@@ -43,7 +43,9 @@
                 <th>Valor</th>
                 <th>Atendente</th>
                 <th>Status</th>
-                <th>Ações</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Excluir</th>
         </tr>
         @endslot
         @slot('foreach')
@@ -65,10 +67,9 @@
                     @if($pedido->status == 'fechado')
                     <td><span class="label label-success">{{$pedido->status}}</span></td>
                     @endif
-                <td>
-                <a href="{{route('pedidos.show', $pedido->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('pedidos.edit', $pedido->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('pedidos.destroy', $pedido->id)}}">
+                <td><a href="{{route('pedidos.show', $pedido->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a></td>
+                <td><a href="{{route('pedidos.edit', $pedido->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a></td>
+                <td><form method="POST" action="{{route('pedidos.destroy', $pedido->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>

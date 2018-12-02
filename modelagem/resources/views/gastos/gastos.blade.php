@@ -42,7 +42,9 @@
                 <th>Data</th>
                 <th>Descrição</th>
                 <th>Pago</th>
-                <th>Ações</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         @endslot
         @slot('foreach')
@@ -56,10 +58,9 @@
                 <td> {{$gasto->descricao}} </td>
                 <td> {{$gasto->pago}} </td>
 
-                <td>
-                <a href="{{route('gastos.show', $gasto->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a>
-                <a href="{{route('gastos.edit', $gasto->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a>
-                <form method="POST" action="{{route('gastos.destroy', $gasto->id)}}">
+                <td><a href="{{route('gastos.show', $gasto->id)}}"> <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search-plus"></i></button></a></td>
+                <td><a href="{{route('gastos.edit', $gasto->id)}}"> <button type="button" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></button></a></td>
+                <td><form method="POST" action="{{route('gastos.destroy', $gasto->id)}}">
                 @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger "><i class="fa fa-fw fa-trash"></i></button>
